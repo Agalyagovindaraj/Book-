@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fights 😜</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@300;400;600&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: repeating-radial-gradient(circle at 20% 30%, #ff7675, #ff7675 20px, #d63031 20px, #d63031 40px);
+            font-family: 'Comfortaa', cursive;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Explosion effect */
+        .explosion {
+            position: absolute;
+            background: #ffd32a;
+            border-radius: 50%;
+            animation: explode 3s linear infinite;
+        }
+        
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(10); opacity: 0; }
+        }
+        
+        .box {
+            background: #2d3436;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 20px 0 #000, 0 30px 40px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+            border: 3px solid #ff7675;
+            animation: boxShake 5s ease-in-out infinite;
+        }
+        
+        @keyframes boxShake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        h1 {
+            color: #ff7675;
+            font-size: 32px;
+            font-family: 'Bangers', cursive;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 #000, 5px 5px 0 #d63031;
+            letter-spacing: 2px;
+        }
+        
+        button {
+            padding: 15px 40px;
+            margin: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            border-bottom: 5px solid #000;
+        }
+        
+        .yes {
+            background: #ff7675;
+            color: #2d3436;
+            box-shadow: 0 5px 0 #d63031;
+        }
+        
+        .yes:hover {
+            transform: scale(0.95);
+            background: #d63031;
+            color: white;
+        }
+        
+        .no {
+            background: #74b9ff;
+            color: #2d3436;
+            position: absolute;
+            box-shadow: 0 5px 0 #0984e3;
+        }
+        
+        .fight-emoji {
+            position: fixed;
+            font-size: 45px;
+            animation: fightFly 1.5s ease-out forwards;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 10px #ff7675);
+        }
+        
+        @keyframes fightFly {
+            0% { transform: translateY(100vh) scale(1) rotate(0deg); }
+            100% { transform: translateY(-100vh) scale(2) rotate(720deg); }
+        }
+        
+        .hit-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 118, 117, 0.2);
+            pointer-events: none;
+            animation: hit 0.3s ease-out;
+        }
+        
+        @keyframes hit {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Are you ready for fights? 😜🔥</h1>
+        <button class="yes" onclick="fightYes()">YES 😅</button>
+        <button class="no" id="noBtn">NO 🙃</button>
+    </div>
+
+    <script>
+        function fightYes() {
+            const emojis = ["😡", "😤", "💥", "🔥", "😅", "💢", "⚡", "🤬", "😈", "👊"];
+            
+            for (let i = 0; i < 50; i++) {
+                const emoji = document.createElement("div");
+                emoji.className = "fight-emoji";
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * window.innerWidth + "px";
+                emoji.style.animationDuration = (Math.random() * 1 + 1) + "s";
+                emoji.style.fontSize = (Math.random() * 30 + 30) + "px";
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 1500);
+            }
+            
+            setTimeout(() => window.location.href = "/love-everyday/", 1600);
+        }
+
+        const noBtn = document.getElementById("noBtn");
+        noBtn.addEventListener("mouseover", () => {
+            const box = document.querySelector(".box");
+            const maxX = box.clientWidth - noBtn.offsetWidth;
+            const maxY = box.clientHeight - noBtn.offsetHeight;
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
+        });
+    </script>
+</body>
+</html>

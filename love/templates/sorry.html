@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>She Said YES 💕</title>
+    <style>
+        /* Beautiful Celebration Gradient Background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, 
+                #ff1493, #ff6b81, #ffb6c1, #ff69b4, 
+                #ff85a2, #ff9eb5, #ffb3c6, #ffc0cb);
+            background-size: 400% 400%;
+            animation: celebrationGradient 10s ease infinite;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Celebration gradient animation */
+        @keyframes celebrationGradient {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 50% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 50% 50%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Confetti background effect */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 2px, transparent 2px),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.4) 3px, transparent 3px),
+                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.4) 2px, transparent 2px),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.4) 4px, transparent 4px),
+                radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.4) 3px, transparent 3px),
+                radial-gradient(circle at 20% 90%, rgba(255, 215, 0, 0.3) 3px, transparent 3px),
+                radial-gradient(circle at 80% 10%, rgba(255, 215, 0, 0.3) 2px, transparent 2px);
+            background-size: 150px 150px;
+            animation: confettiFloat 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes confettiFloat {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 200%; }
+        }
+
+        /* Sparkle overlay */
+        body::after {
+            content: '✨';
+            position: absolute;
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: sparkleFloat 15s linear infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+            25% { transform: translate(150px, -150px) rotate(90deg); opacity: 0.5; }
+            50% { transform: translate(300px, -300px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translate(450px, -450px) rotate(270deg); opacity: 0.2; }
+            100% { transform: translate(600px, -600px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Enhanced box styling */
+        .box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
+            border-radius: 30px;
+            text-align: center;
+            width: 370px;
+            box-shadow: 0 20px 40px rgba(255, 20, 100, 0.3),
+                        0 0 0 3px rgba(255, 255, 255, 0.7),
+                        0 0 30px rgba(255, 105, 180, 0.5);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+            animation: boxCelebration 3s ease-in-out infinite;
+        }
+
+        @keyframes boxCelebration {
+            0%, 100% { 
+                box-shadow: 0 20px 40px rgba(255, 20, 100, 0.3),
+                            0 0 0 3px rgba(255, 255, 255, 0.7);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 30px 60px rgba(255, 20, 150, 0.5),
+                            0 0 0 5px rgba(255, 255, 255, 0.9),
+                            0 0 40px rgba(255, 182, 193, 0.8);
+                transform: scale(1.02);
+            }
+        }
+
+        /* Decorative corner elements */
+        .box::before {
+            content: '💕';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 35px;
+            animation: celebrateSpin 8s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255,105,180,0.5));
+        }
+
+        .box::after {
+            content: '💖';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 35px;
+            animation: celebrateSpin 8s linear infinite reverse;
+            filter: drop-shadow(0 0 10px rgba(255,105,180,0.5));
+        }
+
+        @keyframes celebrateSpin {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            to { transform: rotate(360deg) scale(1); }
+        }
+
+        h1 {
+            color: #ff1493;
+            font-size: 28px;
+            text-shadow: 2px 2px 15px rgba(255, 20, 147, 0.4);
+            animation: celebrationText 2s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes celebrationText {
+            0%, 100% { 
+                text-shadow: 2px 2px 15px rgba(255, 20, 147, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 4px 4px 25px rgba(255, 20, 147, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        p {
+            color: #ff6b81;
+            font-size: 18px;
+            background: rgba(255, 182, 193, 0.2);
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+            border: 1px solid #ffb6c1;
+            box-shadow: 0 2px 15px rgba(255, 105, 180, 0.2);
+        }
+
+        button {
+            padding: 12px 30px;
+            margin: 15px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .yes {
+            background: linear-gradient(45deg, #ff1493, #ff6b81);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .yes:hover::before {
+            left: 100%;
+        }
+
+        .yes:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+            background: linear-gradient(45deg, #ff6b81, #ff1493);
+        }
+
+        .yes:active {
+            transform: scale(0.95);
+        }
+
+        .no {
+            background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
+            color: #ff1493;
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+        }
+
+        .no:hover {
+            transform: scale(0.95);
+            background: linear-gradient(45deg, #ffc0cb, #ffb6c1);
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Enhanced emoji animation */
+        .emoji {
+            position: fixed;
+            bottom: 0;
+            font-size: 30px;
+            animation: flyUp 2s ease-out forwards;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes flyUp {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-325px) scale(1.3) rotate(10deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-650px) scale(2) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        /* Celebration ribbons effect */
+        .ribbon-effect {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .box {
+                width: 300px;
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            button {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+        }
+
+        /* Custom scrollbar celebration */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffe4e1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ff69b4;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff1493;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: #ff69b4;
+            color: white;
+        }
+
+        /* Add floating celebration hearts */
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 105, 180, 0.3);
+            pointer-events: none;
+        }
+
+        /* Audio player styling */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>You said YES 💖</h1>
+        <p>Are you sure? 😍✨</p>
+
+        <button class="yes" onclick="goNext()">YES 💕</button>
+        <button class="no" id="noBtn">NO 😜</button>
+    </div>
+
+    <script>
+        function goNext() {
+            const emojis = ["💖", "😍", "✨", "💍", "💕", "💘", "💝", "💗"];
+
+            for (let i = 0; i < 30; i++) { // Increased for more celebration effect
+                createEmoji(emojis[Math.floor(Math.random() * emojis.length)]);
+            }
+
+            setTimeout(() => {
+                window.location.href = "/final/";
+            }, 1800);
+        }
+
+        function createEmoji(symbol) {
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.innerText = symbol;
+
+            emoji.style.left = Math.random() * window.innerWidth + "px";
+            emoji.style.animationDuration = (Math.random() * 1 + 1.5) + "s";
+            emoji.style.fontSize = (Math.random() * 20 + 20) + "px"; // Random sizes
+
+            document.body.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.remove();
+            }, 2000);
+        }
+
+        // NO button run away 😜
+        const noBtn = document.getElementById("noBtn");
+
+        noBtn.addEventListener("mouseover", () => {
+            const box = document.querySelector(".box");
+
+            const maxX = box.clientWidth - noBtn.offsetWidth;
+            const maxY = box.clientHeight - noBtn.offsetHeight;
+
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
+        });
+    </script>
+
+</body>
+</html>

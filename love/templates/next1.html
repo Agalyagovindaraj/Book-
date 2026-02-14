@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Congratulations 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #d4af37;
+            animation: sparkle 3s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            width: 450px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+            border: 5px solid #d4af37;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 30px 60px rgba(212, 175, 55, 0.6); }
+        }
+        
+        .box::before {
+            content: '💍';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            animation: ringSpin 3s infinite;
+        }
+        
+        @keyframes ringSpin {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            50% { transform: translateX(-50%) rotate(20deg); }
+        }
+        
+        h1 {
+            color: #b8860b;
+            font-size: 36px;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        button {
+            padding: 15px 45px;
+            margin: 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .yes {
+            background: linear-gradient(45deg, #d4af37, #b8860b);
+            color: white;
+            border: 2px solid #fff;
+            box-shadow: 0 10px 20px rgba(184, 134, 11, 0.4);
+        }
+        
+        .yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.6);
+        }
+        
+        .no {
+            background: #ccc;
+            color: #b8860b;
+            position: absolute;
+        }
+        
+        .ring {
+            position: absolute;
+            font-size: 30px;
+            animation: ringFloat 3s linear infinite;
+        }
+        
+        @keyframes ringFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Congratulations 🎉💍</h1>
+        <p>You are officially stuck with me for a lifetime 😏💖<br><br>From now on...</p>
+        <button class="yes" onclick="goNext()">YES 😍</button>
+        <button class="no" id="noBtn">NO 😜</button>
+    </div>
+
+    <script>
+        function goNext() {
+            window.location.href = "/journey/";
+        }
+
+        const noBtn = document.getElementById("noBtn");
+        noBtn.addEventListener("mouseover", () => {
+            const box = document.querySelector(".box");
+            const maxX = box.clientWidth - noBtn.offsetWidth;
+            const maxY = box.clientHeight - noBtn.offsetHeight;
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
+        });
+    </script>
+</body>
+</html>

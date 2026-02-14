@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forever Promise 💍</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd6e8, #ffb6c1);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .box {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 24px;
+        }
+
+        button {
+            padding: 12px 30px;
+            margin: 18px;
+            border: none;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            background-color: #e91e63;
+            color: white;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: 0;
+            font-size: 26px;
+            animation: fly 2.5s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-700px) scale(1.7); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+<audio id="loveSong">
+    <source src="static/music/Neethanae-Neethane-MassTamilan.com.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+    <h1 id="text">Are you ready to hold my hand forever? 💍🥺</h1>
+    <button onclick="finalYes()">YES 😍</button>
+</div>
+
+<script>
+    function finalYes() {
+        document.getElementById("text").innerHTML =
+            "I promise to love you forever 💍💖";
+
+        // Hearts
+        for (let i = 0; i < 25; i++) createHeart();
+
+        // Music
+        setTimeout(() => {
+            document.getElementById("loveSong").play();
+        }, 1000);
+
+        // 👉 GO TO NEXT PAGE
+        setTimeout(() => {
+            window.location.href = "/next-love/";
+        }, 3000);
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2500);
+    }
+</script>
+
+</body>
+</html>

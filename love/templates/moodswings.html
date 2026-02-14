@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Swings 😜</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Patrick+Hand&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: repeating-linear-gradient(45deg, #ffd93e, #ffd93e 20px, #ffb347 20px, #ffb347 40px);
+            font-family: 'Patrick Hand', cursive;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Floating emojis */
+        .floating-emoji {
+            position: absolute;
+            font-size: 40px;
+            animation: floatAround 15s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 100px) rotate(90deg); }
+            50% { transform: translate(200px, 0) rotate(180deg); }
+            75% { transform: translate(100px, -100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        .box {
+            background: white;
+            padding: 50px;
+            border-radius: 100px 100px 50px 50px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+            border: 5px dotted #ff6b6b;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            font-size: 32px;
+            font-family: 'Comic Neue', cursive;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 #ffeaa7;
+        }
+        
+        button {
+            padding: 15px 40px;
+            margin: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yes {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 10px 0 #c44569;
+        }
+        
+        .yes:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 0 #c44569;
+        }
+        
+        .yes:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #c44569;
+        }
+        
+        .no {
+            background: #ffeaa7;
+            color: #ff6b6b;
+            position: absolute;
+            box-shadow: 0 10px 0 #fdcb6e;
+        }
+        
+        .mood-emoji {
+            position: fixed;
+            font-size: 40px;
+            animation: moodFly 2s ease-out forwards;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        @keyframes moodFly {
+            0% { transform: translateY(100vh) scale(1); }
+            100% { transform: translateY(-100vh) scale(2) rotate(360deg); }
+        }
+        
+        .shake {
+            animation: shakeBox 0.5s ease-in-out;
+        }
+        
+        @keyframes shakeBox {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-20px); }
+            75% { transform: translateX(20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <h1>Are you ready for my mood swings? 😜🌈</h1>
+        <button class="yes" onclick="moodYes()">YES 😅</button>
+        <button class="no" id="noBtn">NO 😝</button>
+    </div>
+
+    <script>
+        function moodYes() {
+            const emojis = ["😡", "😭", "😂", "🥺", "😜", "💖", "🙃", "😤", "🥳", "😱"];
+            const box = document.getElementById("box");
+            box.classList.add("shake");
+            
+            for (let i = 0; i < 40; i++) {
+                const emoji = document.createElement("div");
+                emoji.className = "mood-emoji";
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * window.innerWidth + "px";
+                emoji.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
+                emoji.style.fontSize = (Math.random() * 30 + 25) + "px";
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 2000);
+            }
+            
+            setTimeout(() => window.location.href = "/next1/", 1800);
+        }
+
+        const noBtn = document.getElementById("noBtn");
+        noBtn.addEventListener("mouseover", () => {
+            const box = document.querySelector(".box");
+            const maxX = box.clientWidth - noBtn.offsetWidth;
+            const maxY = box.clientHeight - noBtn.offsetHeight;
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
+        });
+    </script>
+</body>
+</html>
